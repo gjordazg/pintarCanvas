@@ -11,9 +11,9 @@
     <header class="titulo">
         <h1>Ejemplos prácticos manejando <em>Canvas</em> con <em>JavaScript</em></h1>
         <div class="menu">
-            <h3><a href="#seccion_1">Torre Eiffel</a></h3>
-            <h3><a href="#seccion_2">Recorre el camino</a></h3>
-            <h3><a href="#seccion_3">Mano alzada</a></h3>
+            <h3><a class="link" href="#seccion_1">Torre Eiffel</a></h3>
+            <h3><a class="link" href="#seccion_2">Recorre el camino</a></h3>
+            <h3><a class="link" href="#seccion_3">Mano alzada</a></h3>
         </div>
     </header>
     <main class="contenedor">
@@ -26,10 +26,10 @@
             </header>
             <div class="box-lienzo">
                 <canvas width="300" height="300" id="lienzo1"></canvas>
-                <p><input type="button" id="limpiar" value="Limpiar"/></p>
+                <p><input type="button" id="limpiar1" value="Limpiar"/></p>
             </div>
         </section>
-        <section class="col-100-33" id="seccion_1">
+        <section class="col-100-33" id="seccion_2">
             <header class="headerSeccion">
                 <h2>Dibuja con las flechas del teclado</h2>
                 <p>Selecciona el punto de inicio y comienza a trazar el recorrido</p>
@@ -39,16 +39,14 @@
                     <input class="teclado" type="button" id="left" value="←" />
                     <input class="teclado" type="button" id="down" value="↓" />
                     <input class="teclado" type="button" id="right" value="→" />
-                </div>
-                
-                
+                </div>           
             </header>
             <div class="box-lienzo">
                 <canvas width="300" height="300" id="lienzo2"></canvas>
                 <p><input type="button" id="limpiar2" value="Limpiar"/></p>
             </div>
         </section>
-        <section class="col-100-33" id="seccion_1">
+        <section class="col-100-33" id="seccion_3">
             <header class="headerSeccion">
                 <h2>Pinta lo que quieras</h2>
                 <p>Selecciona el color: <input type="color" id="colorTrazo" /> y comienza a pintar.</p>
@@ -56,7 +54,7 @@
             </header>
             <div class="box-lienzo">
                 <canvas width="300" height="300" id="lienzo3"></canvas>
-                <p><input type="button" id="limpiar-3" value="Limpiar"/></p>
+                <p><input type="button" id="limpiar3" value="Limpiar"/></p>
             </div>
         </section>
     </main>

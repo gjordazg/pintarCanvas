@@ -36,7 +36,7 @@ h1 {
     height: auto;
 }
 
-h3 a{
+h3 a {
     width: auto;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 5px 8px;
@@ -48,7 +48,7 @@ h3 a{
     bottom: 10px;
 }
 
-h3:active{
+h3:active {
     transform: scale(0.9);
 }
 
@@ -64,7 +64,7 @@ h3:active{
     width: 100%;
 }
 
-input[type="button"]{
+input[type="button"] {
     padding: 5px;
     height: auto;
     width: auto;
@@ -74,15 +74,16 @@ input[type="button"]{
     color: floralwhite;
 }
 
-.teclado{
+.teclado {
     width: 20px;
     height: 20px;
     margin: 5px;
 }
 
 
-.headerSeccion, .contenedorTeclado{
-    text-align: center;    
+.headerSeccion,
+.contenedorTeclado {
+    text-align: center;
 }
 
 .box-lienzo {
@@ -118,7 +119,19 @@ canvas {
     .col-100-33 {
         margin: 50px 0;
         width: 50%;
-        
     }
 
+    h2 {
+        padding: 15px 0;
+    }
+
+    p {
+        padding: 8px 0;
+    }
+
+    #seccion_2,
+    #seccion_3 {
+        display: none;
+    }
+    
 }
