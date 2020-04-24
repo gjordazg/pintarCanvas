@@ -100,6 +100,21 @@ canvas {
 }
 
 
+.col-60 {
+    margin: auto;
+}
+
+.col-10 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.col-10 p {
+    margin: auto;
+}
+
+
 @media screen and (min-width: 600px) {
 
     h1 {
@@ -121,6 +136,20 @@ canvas {
         width: 50%;
     }
 
+    .col-100 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+
+    #seccion_2 {
+        width: 100%;
+        padding: 0 100px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
     h2 {
         padding: 15px 0;
     }
@@ -129,9 +158,10 @@ canvas {
         padding: 8px 0;
     }
 
-    #seccion_2,
+
+    #seccion_1,
     #seccion_3 {
         display: none;
     }
-    
+
 }

@@ -30,19 +30,19 @@
             </div>
         </section>
         <section class="col-100-33" id="seccion_2">
-            <header class="headerSeccion">
+            <header class="headerSeccion col-100">
                 <h2>Dibuja con las flechas del teclado</h2>
-                <p>Selecciona el punto de inicio y comienza a trazar el recorrido</p>
                 <p>Selecciona el color: <input type="color" id="colorDibujo" /></p>
-                <div class="contenedorTeclado">
-                    <input class="teclado" type="button" id="up" value="↑" /><br />
-                    <input class="teclado" type="button" id="left" value="←" />
-                    <input class="teclado" type="button" id="down" value="↓" />
-                    <input class="teclado" type="button" id="right" value="→" />
-                </div>           
+                <p>Selecciona un punto en el lienzo donde quieres iniciar y comienza a trazar tu dibujo.</p>
             </header>
-            <div class="box-lienzo">
+            <div class="box-lienzo col-60">
+               <p><input class="teclado" type="button" id="up" value="↑" /></p>
+                <div class="col-10">
+                <p><input class="teclado" type="button" id="left" value="←" /></p>
                 <canvas width="300" height="300" id="lienzo2"></canvas>
+                <p><input class="teclado" type="button" id="right" value="→" /></p>
+                </div>
+                <p><input class="teclado" type="button" id="down" value="↓" /></p>
                 <p><input type="button" id="limpiar2" value="Limpiar"/></p>
             </div>
         </section>
