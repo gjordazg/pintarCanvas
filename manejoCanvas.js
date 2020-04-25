@@ -1,98 +1,85 @@
-/*const links = document.querySelectorAll(".link");
+// Declaramos la variable para el color cuyo valor dependera de cada caso
+let colorElegido;
 
-links.forEach(x => x.addEventListener("click", mostrar));
-
-const secciones = document.querySelectorAll(".col-100-33");
-console.log(links[0].getAttribute("href"), secciones);
-
-
+//Obtenemos todos los botones "Limpiar" de DOM y les agregamos la funcionalidad para limpiar el lienzo
+const limpiar = document.querySelectorAll(".limpiar");
+limpiar.forEach(x => x.addEventListener("click", limpiarLienzo));
 
 
-function mostrar(){
-    
-}
-*/
-
-//Primer Lienzo
+//Obtenemos el primer lienzo y declaramos unas variables especificas del primer caso
 const cajaLienzo_1 = document.getElementById("lienzo1");
 let lienzo = cajaLienzo_1.getContext("2d");
 
-//Botones
-let pintar = document.getElementById("boton1");
-pintar.addEventListener("click", pintarLineas);
-let limpiar = document.getElementById("limpiar1");
-limpiar.addEventListener("click", limpiarLienzo);
-let limpiar2 = document.getElementById("limpiar2");
-limpiar2.addEventListener("click", limpiarLienzo);
-let limpiar3 = document.getElementById("limpiar3");
-limpiar3.addEventListener("click", limpiarLienzo);
-
-let colorElegido;
 let espacio;
 let cantLineas;
+let formaDibujo;
+
+//Obtenemos el boton para pintar las lineas
+let pintar = document.getElementById("pintar");
+pintar.addEventListener("click", pintarLineas);
 
 function pintarLineas() {
     cantLineas = document.getElementById("numLineas").value;
     colorElegido = document.getElementById("colorLinea").value;
+    formaDibujo = parseInt(document.getElementById("combobox").value);
     espacio = cajaLienzo_1.width / cantLineas;
-    esquinaDerechaSup()
-    esquinaDerechaInf()
-    esquinaIzquierdaInf();
-    esquinaIzquierdaSup();
-}
 
-function esquinaIzquierdaInf() {
-    let xInicial = 0,
-        yInicial = 0,
-        xFinal = xInicial + espacio,
-        yFinal = cajaLienzo_1.width;
-
-    for (let i = 0; i < cantLineas; i++) {
-        dibujo(xInicial, yInicial, xFinal, yFinal);
-        yInicial += espacio;
-        xFinal += espacio;
+    console.log(formaDibujo);
+    switch (formaDibujo) {
+        case 1:
+            trazarLineas(0, 0, espacio, cajaLienzo_1.width, espacio);
+            break;
+        case 2:
+            trazarLineas(0, cajaLienzo_1.width, espacio, 0, espacio);
+            break;
+        case 3:
+            trazarLineas(cajaLienzo_1.width, 0, cajaLienzo_1.width - espacio, cajaLienzo_1.width, espacio);
+            break;
+        case 4:
+            trazarLineas(cajaLienzo_1.width, cajaLienzo_1.width, cajaLienzo_1.width - espacio, 0, espacio);
+            break;
+        case 5:
+            trazarLineas(0, 0, espacio, cajaLienzo_1.width, espacio);
+            trazarLineas(0, cajaLienzo_1.width, espacio, 0, espacio);
+            trazarLineas(cajaLienzo_1.width, 0, cajaLienzo_1.width - espacio, cajaLienzo_1.width, espacio);
+            trazarLineas(cajaLienzo_1.width, cajaLienzo_1.width, cajaLienzo_1.width - espacio, 0, espacio);
+            break;
+        case 6:
+            trazarLineas(0, cajaLienzo_1.width / 2, espacio / 2, cajaLienzo_1.width, espacio / 2);
+            trazarLineas(0, cajaLienzo_1.width / 2, espacio / 2, 0, espacio / 2);
+            trazarLineas(cajaLienzo_1.width, cajaLienzo_1.width / 2, cajaLienzo_1.width - espacio / 2, cajaLienzo_1.width, espacio / 2);
+            trazarLineas(cajaLienzo_1.width, cajaLienzo_1.width / 2, cajaLienzo_1.width - espacio / 2, 0, espacio / 2);
+            break;
+        case 7:
+            trazarLineas(cajaLienzo_1.width / 2, 0, cajaLienzo_1.width / 2 + espacio / 2, cajaLienzo_1.width, espacio);
+            trazarLineas(cajaLienzo_1.width / 2, 0, cajaLienzo_1.width / 2 - espacio / 2, cajaLienzo_1.width, espacio);
+            break;
+        case 8:
+            trazarLineas(cajaLienzo_1.width / 2, 0, cajaLienzo_1.width / 2 + espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
+            trazarLineas(cajaLienzo_1.width / 2, cajaLienzo_1.width, cajaLienzo_1.width / 2 + espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
+            trazarLineas(cajaLienzo_1.width / 2, 0, cajaLienzo_1.width / 2 - espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
+            trazarLineas(cajaLienzo_1.width / 2, cajaLienzo_1.width, cajaLienzo_1.width / 2 - espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
+            break;
+        case 9:
+            trazarLineas(0, 0, espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
+            trazarLineas(0, cajaLienzo_1.width, espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
+            trazarLineas(cajaLienzo_1.width / 2, cajaLienzo_1.width / 2, cajaLienzo_1.width / 2 - espacio / 2, 0, espacio / 2);
+            trazarLineas(cajaLienzo_1.width / 2, cajaLienzo_1.width / 2, cajaLienzo_1.width / 2 - espacio / 2, cajaLienzo_1.width, espacio / 2);
+            trazarLineas(cajaLienzo_1.width / 2, cajaLienzo_1.width / 2, cajaLienzo_1.width / 2 + espacio / 2, cajaLienzo_1.width, espacio / 2);
+            trazarLineas(cajaLienzo_1.width, cajaLienzo_1.width, cajaLienzo_1.width - espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
+            trazarLineas(cajaLienzo_1.width / 2, cajaLienzo_1.width / 2, cajaLienzo_1.width / 2 + espacio / 2, 0, espacio / 2);
+            trazarLineas(cajaLienzo_1.width, 0, cajaLienzo_1.width - espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
+            break;
+        default:
     }
 }
 
-
-function esquinaIzquierdaSup() {
-    let xInicial = 0,
-        yInicial = cajaLienzo_1.width,
-        xFinal = xInicial + espacio,
-        yFinal = 0;
+function trazarLineas(xInicial, yInicial, xFinal, yFinal, espacio) {
 
     for (let i = 0; i < cantLineas; i++) {
         dibujo(xInicial, yInicial, xFinal, yFinal);
-        yInicial -= espacio;
-        xFinal += espacio;
-    }
-}
-
-
-function esquinaDerechaInf() {
-    let xInicial = cajaLienzo_1.width,
-        yInicial = 0,
-        xFinal = xInicial - espacio,
-        yFinal = cajaLienzo_1.width;
-
-    for (let i = 0; i < cantLineas; i++) {
-        dibujo(xInicial, yInicial, xFinal, yFinal);
-        yInicial += espacio;
-        xFinal -= espacio;
-    }
-}
-
-
-function esquinaDerechaSup() {
-    let xInicial = cajaLienzo_1.width,
-        yInicial = cajaLienzo_1.width,
-        xFinal = xInicial - espacio,
-        yFinal = 0;
-
-    for (let i = 0; i < cantLineas; i++) {
-        dibujo(xInicial, yInicial, xFinal, yFinal);
-        yInicial -= espacio;
-        xFinal -= espacio;
+        yInicial = yFinal - yInicial > 0 ? yInicial + espacio : yInicial - espacio;
+        xFinal = xFinal - xInicial > 0 ? xFinal + espacio : xFinal - espacio;
     }
 }
 
@@ -110,13 +97,26 @@ function limpiarLienzo() {
 }
 
 
-//Segundo Lienzo
+//Obtenemos el segundo Lienzo y declaramos los puntos iniciales para iniciar el trazo y el largo de cada avance
 const cajaLienzo_2 = document.getElementById("lienzo2");
-
 cajaLienzo_2.addEventListener("click", puntoInicial);
 
 let xInicio;
 let yInicio;
+let sizeTrazo = 2;
+
+//Declaramos y asignamos funcionalidad a los botones del DOM para la direccion del trazo
+let arriba = document.getElementById("up");
+arriba.addEventListener("click", irHaciaArriba);
+
+let abajo = document.getElementById("down");
+abajo.addEventListener("click", irHaciaAbajo);
+
+let izquierda = document.getElementById("left");
+izquierda.addEventListener("click", irHaciaIzquierda);
+
+let derecha = document.getElementById("right")
+derecha.addEventListener("click", irHaciaDerecha);
 
 function puntoInicial(evento) {
     lienzo = cajaLienzo_2.getContext("2d");
@@ -127,8 +127,6 @@ function puntoInicial(evento) {
     dibujo(xInicio, yInicio - 1, xInicio, yInicio + 1);
     document.addEventListener("keydown", comenzarTrazo);
 }
-
-let sizeTrazo = 2;
 
 function comenzarTrazo(event) {
     switch (event.keyCode) {
@@ -179,18 +177,31 @@ function irHaciaAbajo() {
     }
 }
 
-let arriba = document.getElementById("up");
-arriba.addEventListener("click", irHaciaArriba);
 
-let abajo = document.getElementById("down");
-abajo.addEventListener("click", irHaciaAbajo);
+//Obtenemos el tercer Lienzo
+const cajaLienzo_3 = document.getElementById("lienzo3");
+cajaLienzo_3.addEventListener("mousedown", iniciarTrazo);
 
-let izquierda = document.getElementById("left");
-izquierda.addEventListener("click", irHaciaIzquierda);
+function iniciarTrazo(evento) {
+    lienzo = cajaLienzo_3.getContext("2d");
+    xInicio = evento.layerX;
+    yInicio = evento.layerY;
+    colorElegido = document.getElementById("colorTrazo").value;
+    lienzo.beginPath();
+    lienzo.strokeStyle = colorElegido;
+    lienzo.moveTo(xInicio, yInicio);
+    cajaLienzo_3.addEventListener("mousemove", continuarTrazo);
+}
 
-let derecha = document.getElementById("right")
-derecha.addEventListener("click", irHaciaDerecha);
+function continuarTrazo(evento) {
+    cajaLienzo_3.addEventListener("mouseup", finalizarTrazo);
+    lienzo.lineTo(evento.layerX, evento.layerY);
+    lienzo.stroke();
+    xInicio = evento.layerX;
+    yInicio = evento.layerY;
+}
 
-//Tercer Lienzo
-//const cajaLienzo_3 = document.getElementById("lienzo3");
-//const lienzo3 = cajaLienzo_1.getContext("2d");
+function finalizarTrazo(evento) {
+    lienzo.closePath();
+    cajaLienzo_3.removeEventListener("mousemove", continuarTrazo);
+}

@@ -59,7 +59,7 @@ h3:active {
     position: relative;
 }
 
-.col-100-33 {
+.cont-seccion {
     margin: 20px 10px;
     width: 100%;
 }
@@ -160,8 +160,9 @@ canvas {
 
 
     #seccion_1,
+    #seccion_2,
     #seccion_3 {
-        display: none;
+
     }
 
 }

@@ -17,44 +17,57 @@
         </div>
     </header>
     <main class="contenedor">
-        <section class="col-100-33" id="seccion_1">
+        <section class="cont-seccion" id="inicio"></section>
+        <section class="cont-seccion" id="seccion_1">
             <header class="headerSeccion">
-                <h2>¿Quieres dibujar la Torre Eiffel?</h2>
+                <h2>Elige un dibujo</h2>
+                <p><select id="combobox">
+                        <option value="0">--Seleccione--</option>
+                        <option value="1">Esquina inferior izquierda</option>
+                        <option value="2">Esquina superior izquierda</option>
+                        <option value="3">Esquina inferior derecha</option>
+                        <option value="4">Esquina superior derecha</option>
+                        <option value="5">Todas las esquinas</option>
+                        <option value="6">Todas las esquinas reducidas</option>
+                        <option value="7">Torre Eiffel</option>
+                        <option value="8">Estrella 1</option>
+                        <option value="9">Estrella 2</option>
+                    </select>
+                </p>
                 <p>Introduce un numero de líneas: <input type="number" id="numLineas" /></p>
                 <p>Selecciona el color: <input type="color" id="colorLinea" /></p>
-                <input type="button" id="boton1" value="A pintar!" />
+                <input type="button" id="pintar" value="A pintar!" />
             </header>
             <div class="box-lienzo">
                 <canvas width="300" height="300" id="lienzo1"></canvas>
-                <p><input type="button" id="limpiar1" value="Limpiar"/></p>
+                <p><input type="button" class="limpiar" value="Limpiar" /></p>
             </div>
         </section>
-        <section class="col-100-33" id="seccion_2">
+        <section class="cont-seccion" id="seccion_2">
             <header class="headerSeccion col-100">
                 <h2>Dibuja con las flechas del teclado</h2>
                 <p>Selecciona el color: <input type="color" id="colorDibujo" /></p>
                 <p>Selecciona un punto en el lienzo donde quieres iniciar y comienza a trazar tu dibujo.</p>
             </header>
             <div class="box-lienzo col-60">
-               <p><input class="teclado" type="button" id="up" value="↑" /></p>
+                <p><input class="teclado" type="button" id="up" value="↑" /></p>
                 <div class="col-10">
-                <p><input class="teclado" type="button" id="left" value="←" /></p>
-                <canvas width="300" height="300" id="lienzo2"></canvas>
-                <p><input class="teclado" type="button" id="right" value="→" /></p>
+                    <p><input class="teclado" type="button" id="left" value="←" /></p>
+                    <canvas width="300" height="300" id="lienzo2"></canvas>
+                    <p><input class="teclado" type="button" id="right" value="→" /></p>
                 </div>
                 <p><input class="teclado" type="button" id="down" value="↓" /></p>
-                <p><input type="button" id="limpiar2" value="Limpiar"/></p>
+                <p><input type="button" class="limpiar" value="Limpiar" /></p>
             </div>
         </section>
-        <section class="col-100-33" id="seccion_3">
+        <section class="cont-seccion" id="seccion_3">
             <header class="headerSeccion">
                 <h2>Pinta lo que quieras</h2>
                 <p>Selecciona el color: <input type="color" id="colorTrazo" /> y comienza a pintar.</p>
-                
             </header>
             <div class="box-lienzo">
                 <canvas width="300" height="300" id="lienzo3"></canvas>
-                <p><input type="button" id="limpiar3" value="Limpiar"/></p>
+                <p><input type="button" class="limpiar" value="Limpiar" /></p>
             </div>
         </section>
     </main>
