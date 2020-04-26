@@ -1,3 +1,40 @@
+const secciones = document.querySelectorAll(".cont-seccion");
+secciones.forEach(x => x.classList.add("hide"));
+const banner = document.getElementById("inicio");
+
+const enlaces = document.querySelectorAll(".link");
+enlaces[0].addEventListener("click", primerLienzo);
+enlaces[1].addEventListener("click", segundoLienzo);
+enlaces[2].addEventListener("click", tercerLienzo);
+
+function primerLienzo() {
+    secciones[0].classList.add("animacion");
+    secciones[0].classList.remove("hide");
+    secciones[2].classList.remove("animacion");
+    secciones[1].classList.remove("animacion")
+    secciones[2].classList.add("hide");
+    secciones[1].classList.add("hide");
+}
+
+function segundoLienzo() {
+    secciones[1].classList.add("animacion");
+    secciones[1].classList.remove("hide");
+    secciones[0].classList.remove("animacion");
+    secciones[2].classList.remove("animacion");
+    secciones[0].classList.add("hide");
+    secciones[2].classList.add("hide");
+}
+
+function tercerLienzo() {
+    secciones[2].classList.add("animacion");
+    secciones[2].classList.remove("hide");
+    secciones[1].classList.remove("animacion");
+    secciones[0].classList.remove("animacion");
+    secciones[1].classList.add("hide");
+    secciones[0].classList.add("hide");
+}
+
+
 // Declaramos la variable para el color cuyo valor dependera de cada caso
 let colorElegido;
 
@@ -24,43 +61,46 @@ function pintarLineas() {
     formaDibujo = parseInt(document.getElementById("combobox").value);
     espacio = cajaLienzo_1.width / cantLineas;
 
-    console.log(formaDibujo);
     switch (formaDibujo) {
-        case 1:
+        case 1: //Esquina inferior izquierda
             trazarLineas(0, 0, espacio, cajaLienzo_1.width, espacio);
             break;
-        case 2:
+        case 2: //Esquina superior izquierda
             trazarLineas(0, cajaLienzo_1.width, espacio, 0, espacio);
             break;
-        case 3:
+        case 3: //Esquina inferior derecha
             trazarLineas(cajaLienzo_1.width, 0, cajaLienzo_1.width - espacio, cajaLienzo_1.width, espacio);
             break;
-        case 4:
+        case 4: //Esquina superior derecha
             trazarLineas(cajaLienzo_1.width, cajaLienzo_1.width, cajaLienzo_1.width - espacio, 0, espacio);
             break;
-        case 5:
+        case 5: //Todas las esquinas grandes
             trazarLineas(0, 0, espacio, cajaLienzo_1.width, espacio);
             trazarLineas(0, cajaLienzo_1.width, espacio, 0, espacio);
             trazarLineas(cajaLienzo_1.width, 0, cajaLienzo_1.width - espacio, cajaLienzo_1.width, espacio);
             trazarLineas(cajaLienzo_1.width, cajaLienzo_1.width, cajaLienzo_1.width - espacio, 0, espacio);
             break;
-        case 6:
+        case 6: //Todas las esquinas reducidas
             trazarLineas(0, cajaLienzo_1.width / 2, espacio / 2, cajaLienzo_1.width, espacio / 2);
             trazarLineas(0, cajaLienzo_1.width / 2, espacio / 2, 0, espacio / 2);
             trazarLineas(cajaLienzo_1.width, cajaLienzo_1.width / 2, cajaLienzo_1.width - espacio / 2, cajaLienzo_1.width, espacio / 2);
             trazarLineas(cajaLienzo_1.width, cajaLienzo_1.width / 2, cajaLienzo_1.width - espacio / 2, 0, espacio / 2);
             break;
-        case 7:
+        case 7: //Torre Eiffel
             trazarLineas(cajaLienzo_1.width / 2, 0, cajaLienzo_1.width / 2 + espacio / 2, cajaLienzo_1.width, espacio);
             trazarLineas(cajaLienzo_1.width / 2, 0, cajaLienzo_1.width / 2 - espacio / 2, cajaLienzo_1.width, espacio);
             break;
-        case 8:
+        case 8: //Estrella1
+            dibujo(0, cajaLienzo_1.width / 2, cajaLienzo_1.width, cajaLienzo_1.width / 2);
+            dibujo(cajaLienzo_1.width / 2, 0, cajaLienzo_1.width / 2, cajaLienzo_1.width);
             trazarLineas(cajaLienzo_1.width / 2, 0, cajaLienzo_1.width / 2 + espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
             trazarLineas(cajaLienzo_1.width / 2, cajaLienzo_1.width, cajaLienzo_1.width / 2 + espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
             trazarLineas(cajaLienzo_1.width / 2, 0, cajaLienzo_1.width / 2 - espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
             trazarLineas(cajaLienzo_1.width / 2, cajaLienzo_1.width, cajaLienzo_1.width / 2 - espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
             break;
-        case 9:
+        case 9: //Estrella2
+            dibujo(0, cajaLienzo_1.width / 2, cajaLienzo_1.width, cajaLienzo_1.width / 2);
+            dibujo(cajaLienzo_1.width / 2, 0, cajaLienzo_1.width / 2, cajaLienzo_1.width);
             trazarLineas(0, 0, espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
             trazarLineas(0, cajaLienzo_1.width, espacio / 2, cajaLienzo_1.width / 2, espacio / 2);
             trazarLineas(cajaLienzo_1.width / 2, cajaLienzo_1.width / 2, cajaLienzo_1.width / 2 - espacio / 2, 0, espacio / 2);
@@ -75,7 +115,6 @@ function pintarLineas() {
 }
 
 function trazarLineas(xInicial, yInicial, xFinal, yFinal, espacio) {
-
     for (let i = 0; i < cantLineas; i++) {
         dibujo(xInicial, yInicial, xFinal, yFinal);
         yInicial = yFinal - yInicial > 0 ? yInicial + espacio : yInicial - espacio;

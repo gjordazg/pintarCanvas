@@ -5,8 +5,11 @@
 }
 
 body {
-    position: relative height: 100hv;
-    width: 100%;
+    position: relative;
+    height: 100hv;
+    min-width: 300px;
+    max-width: 100%;
+
 }
 
 .titulo {
@@ -22,7 +25,7 @@ body {
 h1 {
     padding: 10px 0;
     height: 60%;
-    font-size: 1.7em;
+    font-size: 1.5em;
     color: azure;
     text-shadow: -1px 1px 2px black;
 }
@@ -38,37 +41,49 @@ h1 {
 
 h3 a {
     width: auto;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 5px 8px;
     box-shadow: -2px 2px 8px silver;
     color: whitesmoke;
     padding: 10px 5px;
-    font-size: 1.0em;
+    font-size: 0.8em;
     text-decoration: none;
     bottom: 10px;
 }
 
-h3:active {
-    transform: scale(0.9);
-}
-
-
 .contenedor {
     width: 100%;
+    height: 600px;
     display: block;
     position: relative;
+    background-image: url(banner.jpg);
+    background-attachment: ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
 }
+
+main p {
+    margin: auto;
+    padding: 2px 0;
+    color: whitesmoke;
+    font-size: 1.0em;
+}
+
 
 .cont-seccion {
-    margin: 20px 10px;
     width: 100%;
+    height: 100%;
 }
 
-input[type="button"] {
+.limpiar,
+#pintar {
     padding: 5px;
     height: auto;
     width: auto;
-    border-radius: 3px;
+    border-radius: 5px;
     box-shadow: -1px 2px 3px gray;
     background-color: crimson;
     color: floralwhite;
@@ -78,91 +93,174 @@ input[type="button"] {
     width: 20px;
     height: 20px;
     margin: 5px;
+    border-radius: 5px;
+    box-shadow: -1px 2px 3px gray;
+    background-color: crimson;
+    color: floralwhite;
 }
 
-
-.headerSeccion,
-.contenedorTeclado {
-    text-align: center;
+.headerSeccion h2 {
+    color: orange;
+    text-shadow: 0 0 20px white, 1px -1px 1px black, -2px 2px 3px black, -5px 5px 10px #618cff, -5px 5px 15px white, 5px -5px 15px white, -1px 1px 1px red;
+    font-size: 2.0em;
+    padding: 15px 0 10px;
 }
 
 .box-lienzo {
     text-align: center;
-    margin: 20px 0;
+    margin: 25px 0;
 
+}
+
+#up {
+    position: absolute;
+    top: 26%;
+    left: 45%;
+}
+
+#down {
+    position: absolute;
+    bottom: 15%;
+    left: 45%;
+}
+
+#left {
+    position: absolute;
+    bottom: 40%;
+    left: 1%;
+}
+
+#right {
+    position: absolute;
+    bottom: 40%;
+    right: 1%;
 }
 
 canvas {
-    width: 300;
-    height: 300;
     border: 1px dashed silver;
     box-shadow: -2px 2px 8px black;
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
-
-.col-60 {
-    margin: auto;
+#lienzo3 {
+    margin-top: 25px;
 }
 
-.col-10 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.hide {
+    display: none;
 }
 
-.col-10 p {
-    margin: auto;
+@keyframes animacion {
+    from{opacity: 0.6;}
+    to{opacity: 1;}
 }
 
+.animacion {
+    animation-name: animacion;
+    animation-duration: 2s;
+}
+
+@media screen and (min-width: 400px) {
+    h1 {
+        font-size: 1.7em;
+    }
+
+    h3 a {
+        font-size: 1.0em;
+    }
+
+    main p {
+        font-size: 1.2em;
+    }
+
+    .headerSeccion h2 {
+        font-size: 2.2em;
+        padding: 5px 0;
+    }
+
+    #up,
+    #down,
+    #left,
+    #right {
+        position: relative;
+        left: 0;
+        padding: 0;
+    }
+
+    .box-lienzo {
+        width: 100%;
+        padding: 30px 0 20px;
+        margin: auto;
+        text-align: center;
+        display: block;
+        position: relative;
+    }
+
+    .lienzo-flex {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    #seccion_1 .box-lienzo {
+        padding: 24px 0;
+    }
+
+    .left {
+        text-align: left;
+        margin-right: 0;
+        margin-left: auto;
+    }
+
+    .right {
+        text-align: right;
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+    #seccion_2 .box-lienzo {
+        padding: auto;
+        padding-top: 0;
+    }
+}
 
 @media screen and (min-width: 600px) {
 
     h1 {
-        font-size: 2.2em;
+        padding: 1% 0;
+        font-size: 2.35em;
     }
 
     h3 {
-        font-size: 1.5em
+        font-size: 1.8em
     }
 
-    .contenedor {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+    h3:active {
+        transform: scale(0.9);
     }
 
-    .col-100-33 {
-        margin: 50px 0;
-        width: 50%;
+    h3:hover {
+        transform: scale(1.05);
+
     }
 
-    .col-100 {
-        width: 100%;
-        margin-bottom: 20px;
+    h3 a:hover {
+        background-color: rgba(134, 4, 4, 0.85);
+        box-shadow: none;
     }
 
+    #seccion_1 .box-lienzo {
+        padding: 45px 0 20px;
+    }
 
-    #seccion_2 {
-        width: 100%;
-        padding: 0 100px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+    .lienzo-flex {
+        padding: 0 15%;
+        margin: auto;
     }
 
     h2 {
-        padding: 15px 0;
-    }
-
-    p {
-        padding: 8px 0;
-    }
-
-
-    #seccion_1,
-    #seccion_2,
-    #seccion_3 {
-
+        padding: 10px 0;
     }
 
 }
